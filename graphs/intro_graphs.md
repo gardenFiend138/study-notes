@@ -1,7 +1,9 @@
 # Graphs
-[introduction video](https://www.youtube.com/watch?v=gXgEDyodOJU)
 
-## Key Terms 
+## Introduction to Graphs
+[Introduction to Graphs Video](https://www.youtube.com/watch?v=gXgEDyodOJU)
+
+### Key Terms 
   * __graph__: a collection of vertices and edges; used to show relationships; A graph G is an ordered pair of a set V of vertices and a set E of edges
     * G = (V, E)
   * __node/vertex__: a part of a graph; connected to other nodes by edges; nodes/ vertices contain some sort of information (value, index, etc)
@@ -48,10 +50,10 @@
   We can also say that ALL graphs are weighted graphs, but that 'unweighted graphs' have edges of all the same weight.
   
   
-# Properties of Graphs 
-[properties of graphs video](https://www.youtube.com/watch?v=AfYqN3fGapc)
+## Properties of Graphs 
+[Properties of Graphs Video](https://www.youtube.com/watch?v=AfYqN3fGapc)
 
-## Key Terms 
+### Key Terms 
   * __self-loop__: a node that has a link to itself
   * __multi-edge/ prallel-edge__: an edge that is repeated in a graph 
   * __simple graph__: a graph with NO self-loops or multi/parallel edges 
@@ -112,3 +114,58 @@ Number of edges and vertices denoted as |V| and |E|, read as 'Edges in set E', '
   * cycles in graphs can cause lots of issues 
     * directed acyclic graph (DAG) 
   
+## Edge List 
+[Edge List Overview Video](https://www.youtube.com/watch?v=ZdY1Fp9dKzs&index=40&list=PL2_aWCzGMAwI3W_JlcBbtYTwiQSsOTa6P)
+
+### Key Terms 
+  * __Vertex List__: an array used to hold the values of vertices 
+  * __Edge List__: an array used to hold instances of Edge class (that you define; holds reference to start vertex, end index, and weight)
+
+How to create/ represent graph (in computer memory)
+G = (V, E)
+A graph is defined as an ordered pair of vertices and edges 
+
+  * One way to create graph: create a list of vertices, create a list of edges 
+  * define an edge as a class that contains start index and end index (indices from the vertex array)
+  
+Array of vertices of graph: 
+`[A, B, C, D, E]`
+
+Array of edges (shown here as subarry; best to define class and store instances of the edge class that you define)
+`[[vertex start index, vertex end index, weight], [], [], [], [], []]`
+
+No need to include both edges for undirected graphs (i.e.: if we know it's undirected, then no need to A,B and B,A 
+
+How to store weights? 
+  * have extra variable on edge class to store edge 
+  
+__This is not a very efficient way to store graphs__
+  * take into account cost:
+  Let N be |V| (number of vertices)
+    * time cost of operations 
+      * O(|V|) for vertex operations 
+      * O(|V|* |V|)) for edge operations, since directed graphs can have up to n(n - 1) edges 
+    
+    * memory cost of storing data 
+      * for array, need N memory for vertex list 
+      * for edge list, store pointers for vertices, not copies; or, store indices of vertices in vertex list 
+      * Overall memory usage is O(|V| + |E|)
+      
+Common graph problem:
+  * Find all nodes adjacent to a given node: O(|E|)
+  * Determine if two given nodes are connected: O(|E|)
+    * must perform linear scan of Edge List for both of these
+  
+  Recall (let |V| = n): 
+    * 0 <= |E| <= n(n - 1), if directed  
+    * 0 <= |E| <= (n(n - 1)/ 2), if undirected 
+    
+    
+To follow up in study of graphs: 
+
+[Adjacency Matrix](https://www.youtube.com/watch?v=9C2cpQZVRBA&list=PL2_aWCzGMAwI3W_JlcBbtYTwiQSsOTa6P&index=41)
+
+[Adjacency List](https://www.youtube.com/watch?annotation_id=annotation_2656532701&feature=iv&index=42&list=PL2_aWCzGMAwI3W_JlcBbtYTwiQSsOTa6P&src_vid=9C2cpQZVRBA&v=k1wraWzqtvQ)
+      
+  
+
