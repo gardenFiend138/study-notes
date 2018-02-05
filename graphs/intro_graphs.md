@@ -100,7 +100,7 @@ Number of edges and vertices denoted as |V| and |E|, read as 'Edges in set E', '
   * A graph that is undirected, but still provides a path to all vertices, then it is just connected
   * A directed graph, that can be turned into a connected graph by making edges undirected, is called weakly_directed
   
-## Connectedness of a graph is extremely important 
+**__Connectedness of a graph is extremely important__**
 
   A walk is called a closed walk if it starts and ends at the same vertex, and the length of the walk/ path must be > 0; sometimes referred to as a cycle 
   
