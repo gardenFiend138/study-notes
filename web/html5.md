@@ -33,3 +33,6 @@ What I already knew about: more semantic tags, canvas, SVG elements.
   * Viewport: allows you to define viewport widths and zoom settings
   * Full screen browsing: IOS specific values that allow Apple devices to display in full screen mode
   * Home Screen Icons: like favicons on desktop, these icons are used to add favorites to the home screen of an IOS and Android mobile device
+  
+  
+[Article Referenced on HTML5](https://tympanus.net/codrops/2011/11/24/top-10-reasons-to-use-html5-right-now/)
