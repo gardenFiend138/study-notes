@@ -50,6 +50,21 @@
   
 # Properties of Graphs 
 [properties of graphs video](https://www.youtube.com/watch?v=AfYqN3fGapc)
+
+## Key Terms 
+  * __self-loop__: a node that has a link to itself
+  * __multi-edge/ prallel-edge__: an edge that is repeated in a graph 
+  * __simple graph__: a graph with NO self-loops or multi/parallel edges 
+  * __dense__: a graph that has edges close to |V| squared; use an adjacency matrix to save to memory
+  * __sparse__: a graph that has edges close to |V|; use an adjacency list to save to memory
+  * __path__: sequence of vertices where each adjacent pair is connected by an edge; path from A to B denoted <A B> 
+  * __walk__: traversing a graph; simple path means that no edges or vertices are repeated 
+  * __trail__: a walk in which no edges are repeated 
+  * __strongly connected__: directed graph in which there is a path from any vertex to any vertex  
+  * __connected__: undirected graph that still provides a path from any vertex to any vertex 
+  * __weakly-connected__: A directed graph, that can be turned into a connected graph by making edges undirected
+  * __cycle__: a closed walk; the path starts and ends at the same vertex; the length of the walk/ path must be greater than 0
+  
 Number of edges and vertices denoted as |V| and |E|, read as 'Edges in set E', 'Vertices in set V' 
   * set is a list of unique items (no duplicates)
   
@@ -75,7 +90,7 @@ Number of edges and vertices denoted as |V| and |E|, read as 'Edges in set E', '
     * for sprase graphs, we use a adjacency list 
     
   Path in a graph: 
-    * sequence of vertices where each adhacent pair is connected by an edge 
+    * sequence of vertices where each adjacent pair is connected by an edge 
     * path denoted by < >
       * simple path: vertices and edges are not repeated 
     * Walk: traversing a graph 
