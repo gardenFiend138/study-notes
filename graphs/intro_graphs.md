@@ -166,6 +166,36 @@ To follow up in study of graphs:
 [Adjacency Matrix](https://www.youtube.com/watch?v=9C2cpQZVRBA&list=PL2_aWCzGMAwI3W_JlcBbtYTwiQSsOTa6P&index=41)
 
 [Adjacency List](https://www.youtube.com/watch?annotation_id=annotation_2656532701&feature=iv&index=42&list=PL2_aWCzGMAwI3W_JlcBbtYTwiQSsOTa6P&src_vid=9C2cpQZVRBA&v=k1wraWzqtvQ)
+
+## Representing Graphs 
+
+### Adjacency Matrix 
+
+[Adjacency Matrix Video](https://www.youtube.com/watch?v=9C2cpQZVRBA&index=41&list=PL2_aWCzGMAwI3W_JlcBbtYTwiQSsOTa6P)
+
+Using 2 lists (array) to represent graphs has its limitations (time cost of most frequently performed operations--see above notes; requires linear scan of edge list, and edges can be close to |V|^2)
+
+Using a matrix (grid) to represent graph. 
+
+The key for this one is to use boolean values in the matrix, if there is an edge connecting the nodes, put a 1, else, put a 0. The matrix is set up so that the x-axis corresponds to the nodes of the graph, stored still in a vertex list (as before). The Y-axis corresponds to the nodes to which the x-axis node is connected to. (See diagram in images folder)
+
+Note that for undirected graphs, the matrix is symmetrical, since Aij == Aji (that is, every edge connects two nodes, both ways). Because of this, we only have to go through half of the edges, with the matrix cut along a diagonal.
+
+With this, time complexity is cut to: O(|V|), since when we are given a vertex, we must scan the vertex list first to get the index, then scan the row at that index in the adjacency matrix. 
+(What about using a hash then?? Lookup time is constant, but then we still need to scan the row that we're storing at that value in the hash).
+
+If indices are given, we can do this in constant time. Okay, now they talk about using a hash for this for the constant lookup time. 
+
+Now, how to store a weighted graph:
+Same use of the adjacency matrix, but instead of usin boolean values, we store the edge weight in the adjacency matrix; so now, Aij corresponds ot the edge weight if it exists, not just the presence or absence of an edge. In the demo, he uses infinity, negative infinity, or any other value that would never be a valid edge weight.
+
+Now, we have really improved time complexity, but we are now using O(|V| ** 2) memory. This means that for sparse graphs, we are wasting a lot of memory storing 0s. For dense graphs, adjacency matrix works well though.
+
+Thinking about modeling s social network (FB) with a graph, we know that every user will not be connected to every other user, so we can approximate. 
+
+Next up, adjacency list!
+
+
       
   
 
