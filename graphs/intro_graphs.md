@@ -195,6 +195,31 @@ Thinking about modeling s social network (FB) with a graph, we know that every u
 
 Next up, adjacency list!
 
+## Adjacency List 
+
+[Adjacency List Video](https://www.youtube.com/watch?v=k1wraWzqtvQ&index=42&list=PL2_aWCzGMAwI3W_JlcBbtYTwiQSsOTa6P)
+
+Starts off with an overview of adjacency matrix; reviewing limitations, especially memory constraints (requiring a |V| by |V| grid)
+
+Sugests using an array of edges only, not keeping track of where we are not connected (wasted memory for false values, since in the real world most graphs are sparse). 
+
+Using an adjacency list has a space complexity of O(|E|), and while edges can be |V| ** 2, it most times does not come close to this. 
+
+Now, with an adjacency matrix, we spend constant time to see if a vertex is connected to a vertex (we can look up the indices in our vertex list, and key into our matrix at [start_vertex][end_vertex]). 
+
+For adjacency list, we are forced to scan the array for the given vertex to see if a connection exists (worst case O(|V|)); if we keep a sorted array, we can perform a binary search, reducing our time to log(|V|). This does require us to keep the list sorted though, which has its own implications.
+
+Since most graphs are sparse, our time complexity is actually reduced, since, with that assumption, we won't ever hit our worst case. (See diagram comparing time complexity). 
+
+Before we decide on the best representation, we need to account for a few more common operations.
+
+Inserting a vertex/ edge: adjacency matrix does well with this (constant time for adding/ removing edge). With an adjacency list, to add an edge, we have to create a new array (assuming we don't have a dynamic array). Instead, use a linked list to store the edges, since we don't need contiguous memory; Then we can just create an array of pointers, which points to the head of a linked list. 
+
+**Review from minute 20 on** Discusses using linked lists and pointers for optimumization.
+
+An actual adjacency list uses a linked list with pointers. 
+
+Or, use a binary search tree instead of a linked list, as this would lessen the time required to searching, inserting, deleting neighbor vertices.
 
       
   
