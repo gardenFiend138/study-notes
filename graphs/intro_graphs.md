@@ -203,6 +203,8 @@ Starts off with an overview of adjacency matrix; reviewing limitations, especial
 
 Sugests using an array of edges only, not keeping track of where we are not connected (wasted memory for false values, since in the real world most graphs are sparse). 
 
+![Adjacency Matrix Diagram](/images/adjacency_matrix_diagram_1.png)
+
 Using an adjacency list has a space complexity of O(|E|), and while edges can be |V| ** 2, it most times does not come close to this. 
 
 Now, with an adjacency matrix, we spend constant time to see if a vertex is connected to a vertex (we can look up the indices in our vertex list, and key into our matrix at [start_vertex][end_vertex]). 
@@ -211,6 +213,8 @@ For adjacency list, we are forced to scan the array for the given vertex to see 
 
 Since most graphs are sparse, our time complexity is actually reduced, since, with that assumption, we won't ever hit our worst case. (See diagram comparing time complexity). 
 
+![Time Complexity Comparison](/images/time_complexity_comparison_1.png)
+
 Before we decide on the best representation, we need to account for a few more common operations.
 
 Inserting a vertex/ edge: adjacency matrix does well with this (constant time for adding/ removing edge). With an adjacency list, to add an edge, we have to create a new array (assuming we don't have a dynamic array). Instead, use a linked list to store the edges, since we don't need contiguous memory; Then we can just create an array of pointers, which points to the head of a linked list. 
@@ -218,6 +222,8 @@ Inserting a vertex/ edge: adjacency matrix does well with this (constant time fo
 **Review from minute 20 on** Discusses using linked lists and pointers for optimumization.
 
 An actual adjacency list uses a linked list with pointers. 
+
+![Adjacency List Diagram](/images/adjacency_list_diagram_1.png)
 
 Or, use a binary search tree instead of a linked list, as this would lessen the time required to searching, inserting, deleting neighbor vertices.
 
