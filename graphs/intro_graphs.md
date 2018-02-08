@@ -219,7 +219,7 @@ Before we decide on the best representation, we need to account for a few more c
 
 Inserting a vertex/ edge: adjacency matrix does well with this (constant time for adding/ removing edge). With an adjacency list, to add an edge, we have to create a new array (assuming we don't have a dynamic array). Instead, use a linked list to store the edges, since we don't need contiguous memory; Then we can just create an array of pointers, which points to the head of a linked list. 
 
-**Review from minute 20 on** Discusses using linked lists and pointers for optimumization.
+**Review from minute 20 on** Discusses using linked lists and pointers for optimization.
 
 An actual adjacency list uses a linked list with pointers. 
 
