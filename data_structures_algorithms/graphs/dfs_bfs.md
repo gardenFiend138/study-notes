@@ -8,6 +8,21 @@
 
 
 ### Breadth First Search
+* Uses 
+  * Web crawling 
+  * social networking (friends of friends)
+  * network broadcasting 
+  * garbage collection 
+    * checks what data and variables are reachable ffrom the current scope, frees up the memory if it is not 
+    * model checking (graph of possible state possibilities to check; if a parent isn't possible to reach, then neither are the children)
+    * checking mathematical conjectures (same reason as above)
+    * solving puzzles and games (establish configuration graph, each vertex is a possible state)
+      * fun fact: vertices for 2x2x2 rubics cube is (8! * 3^8) == 264,000,000
+         * taking apart cube and reassembling 
+         * divide by 24 and again by 3 due to constraints of a physical rubic's cube 
+  
+  'diameter' of the graph 
+         
 * Uses a queue
   * Think of lightening, shooting down to the furthest left-most node 
 * Start at first vertex, add it to stack, mark it as visited 
