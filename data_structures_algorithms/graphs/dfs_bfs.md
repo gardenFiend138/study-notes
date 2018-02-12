@@ -24,17 +24,27 @@
   'diameter' of the graph 
          
 * Uses a queue
-  * Think of lightening, shooting down to the furthest left-most node 
-* Start at first vertex, add it to stack, mark it as visited 
+* Start at first vertex, add it to queue, mark it as visited 
 * Then, check the vertices it's connected to through an edge
   * See which to visit first (least alphabetically, value, etc)
-  * Add that to the stack, mark it as visited 
+  * Add that to the queue, mark it as visited 
 * Repeat the process 
 
-* We are finished when the stack is empty 
+* We are finished when the queue is empty 
+
+### BFS (continued)
+
+[BFS Reading](https://www.geeksforgeeks.org/breadth-first-traversal-for-a-graph/)
+
+Time complexity: O(|V| + |E|)
+
+Similar to a BFS of a tree, except for the fact that graphs may have cycles. This means we need to keep track of which vertices have already been visited. If the boolean array has any false values when the queue is empty, it means we have a disconnected graph, and we must start the BFS over again with the nodes that are unvisited. 
+
+__Big idea:__ traverse nodes in layers 
 
 ### Depth First Search 
 * Uses a stack
+  * Think of lightening, shooting down to the furthest left-most node 
 * Start at first vertex, add it to the result (mark as visited)
 * See what vertices are connected, go to the one that comes next
   * Put the vertices that are visited into your queue
