@@ -22,3 +22,4 @@ console.log(sayHiToJon)     // ƒ() { console.log(message) }
 console.log(sayHiToJon())   // 'Hi Jon!'
 ```
 
+A related topic is 'Immediate Invoked Function Exression (IIFE)'--look more into this. See the above referenced article, and search for 'IIFE'.
