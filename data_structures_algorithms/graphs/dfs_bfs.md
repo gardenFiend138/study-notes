@@ -43,6 +43,8 @@ Similar to a BFS of a tree, except for the fact that graphs may have cycles. Thi
 __Big idea:__ traverse nodes in layers 
 
 ### Depth First Search 
+* Maze solving, shortest paths 
+* lends itself to recursion 
 * Uses a stack
   * Think of lightening, shooting down to the furthest left-most node 
 * Start at first vertex, add it to the result (mark as visited)
@@ -51,6 +53,31 @@ __Big idea:__ traverse nodes in layers
 * Continue to walk through the vertices that were connected to our starting node, adding them to the result, and enqueueing them
 * When we no longer have any vertices to visit for our curent node, we dequeue a vertex, and explore those edges 
 * Repeat 
+
+// this only visits vertices reachable from 's'
+parent = { s: None }
+DFS_visit(V, adj, s) // s is given vertex 
+  for v in Adj[s]: 
+    if v not in parent: 
+      parent[v] = s // set parent pointer 
+      DFS(V, Adj, s)
+      
+DFS(V, Adj):
+  parent = {} 
+  for s in V:
+    if s not in parent: 
+      parent[s] = none 
+      DFS-visit(v, Adj, s)
+      
+### Edge Classification 
+* tree edge (parent pointer) 
+  * visit new vertex via edge 
+* forward edges (goes from node to descendent in tree)
+* backward edges (goes from one vertex to an ancestor--that is, a vertex prior in the graph)
+* cross edges (edge that connects sibling nodes/ sub-trees; non ancestor related) 
+
+How to determine this programatically? Every parent pointer corresponds to tree edges; can use time/ counter to keep track of when it was visited, and then use that to compute; 
+
 
 ## Readings and Code 
 
