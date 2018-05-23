@@ -7,7 +7,7 @@
 
 // time: O(n)
 // space: O(n)
-const myUnique = string => {
+const isUnique = (string) => {
   const counter = {};
   let i;
   let char;
@@ -22,10 +22,10 @@ const myUnique = string => {
   return true;
 };
 
-// console.log('myUnique test: ', myUnique('abcde') === true);
-// console.log('myUnique test: ', myUnique('abcda') === false);
+// console.log('isUnique test: ', isUnique('abcde') === true);
+// console.log('isUnique test: ', isUnique('abcda') === false);
 
-const myUniqueInPlace = string => {
+const isUniqueInPlace = (string) => {
   let i;
   let partition;
 
@@ -39,17 +39,17 @@ const myUniqueInPlace = string => {
   return true;
 };
 
-// console.log('myUnique test: ', myUniqueInPlace('abcde') === true);
-// console.log('myUnique test: ', myUniqueInPlace('abcda') === false);
+// console.log('isUnique test: ', isUniqueInPlace('abcde') === true);
+// console.log('isUnique test: ', isUniqueInPlace('abcda') === false);
 
 /* Write code to reverse a C-Style String.
  * (C-String means that “abcd” is represented as five characters,
  * including the null character.)
  * Where is the null character? Assuming end..
- * Can we mutate? Or pure function?
+ * Can we mutate? Or pure function? Strings are immmutable in JS anyway
  */
 
- const myReverse = string => {
+ const myReverse = (string) => {
    let reversed = '';
 
    for (let i = string.length - 1; i >= 0; i--) {
@@ -61,20 +61,20 @@ const myUniqueInPlace = string => {
 
 // console.log('my reverse: ', myReverse('abcd ') === ' dcba');
 
-const myReverseInPlace = string => {
-  let previous;
-  let i = 0;
-  let j = string.length - 1;
+/*Design an algorithm and write code to remove the duplicate characters in a
+ * string without using any additional buffer. NOTE: One or two additional
+ * variables are fine. An extra copy of the array is not.
+ */
 
-  while (i < j) {
-    previous = string[i];
-    string[i] = string[j];
-    string[j] = previous;
-    i += 1;
-    j -= 1;
+const myUnique = (string) => {
+  let noDups = '';
+
+  for (let i = 0; i < string.length; i++) {
+    if (!noDups.includes(string[i])) noDups += string[i];
   }
 
-  return string;
+  return noDups;
 };
 
-console.log('my reverse: ', myReverseInPlace('abcd') === 'dcba');
+
+console.log('myUnique test: ', myUnique('aabaababc') === 'abc');
