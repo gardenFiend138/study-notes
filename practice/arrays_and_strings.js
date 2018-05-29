@@ -110,9 +110,37 @@ const isAnagram = (string1, string2) => {
   };
 
   return Object.keys(charCounter1).every(key => (
-      charCounter2[key] && charCounter1[key] === charCounter2[key]
+      charCounter2[key] && (charCounter1[key] === charCounter2[key])
     ));
 };
 // console.log('isAnagram test: ', isAnagram('aabba', 'babaa') === true);
 // console.log('isAnagram test: ', isAnagram('aaba', 'babaa') === false);
 // console.log('isAnagram test: ', isAnagram('aaba', 'bcaa') === false);
+
+/*
+ * Write a method to replace all spaces in a string with ‘%20’.
+ * What sort of encoding? UTF-8? (does that even matter?)
+ * Must return a new copy since strings are immutatble in JS
+ * just use encodeURI() IRL
+ */
+
+// time: O(n)
+// space: O(n)
+const escapeSpaces = (string) => {
+  let escapedString = '';
+
+  for (let i = 0; i < string.length; i++) {
+    if (string.charCodeAt(i) === 32) {
+      escapedString += '%20';
+      continue;
+    }
+
+    escapedString += string[i];
+  }
+
+  return escapedString;
+};
+
+// console.log('escapeSpaces test: ', escapeSpaces('  ') === '%20%20');
+// console.log('escapeSpaces test: ', escapeSpaces('a b ') === 'a%20b%20');
+// console.log('escapeSpaces test: ', escapeSpaces('abc') === 'abc');
