@@ -179,3 +179,59 @@ const myTransform = (array) => {
 
 // why not evaluating as equal? Testing for same array and value?
 // console.log('myTransform test: ', myTransform([[1,2,3], [4,5,6], [7,8,9]]) === [[1,4,7], [2,5,8], [3,6,9]]);
+
+/*
+ Write an algorithm such that if an element in an MxN matrix is 0,
+ its entire row and column is set to 0.
+
+ In place? This may drastically affect the outcome.
+ Or scan the entire matrix first, find the zeroes, and set the rows and columns from there?
+
+ [
+ [0, 4, 7],
+ [2, 0, 8], =>
+ [3, 6, 9],
+ ]
+
+ [
+ [0, 0, 0],
+ [0, 0, 0],
+ [0, 0, 9],
+ ]
+ */
+
+const getColumnAndRowWithZero = (array) => {
+  let rows = [];
+  let columns = [];
+
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 0; j < array.length; j++) {
+      if (array[i][j] === 0) {
+        rows.push(i);
+        columns.push(j);
+      }
+    }
+  }
+
+  return { rows, columns };
+}
+
+// This is terrible, look at it again
+const setColumnAndRowToZero = (array) => {
+  const rowsAndColumns = getColumnAndRowWithZero(array);
+
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 0; j < array.length; j++) {
+      if (rowsAndColumns.rows.includes(i)) array[i][j] = 0;
+      if (rowsAndColumns.columns.includes(j)) {
+        for (let k = 0; k < i; k++) {
+          array[i][k] = 0;
+        }
+      }
+    }
+  }
+
+  return array;
+};
+
+console.log('setColumnAndRowToZero test: [[0, 0, 0], [0, 0, 0], [0, 0, 9]] ?', setColumnAndRowToZero([[0, 4, 7], [2, 0, 8], [3, 6, 9]]));
