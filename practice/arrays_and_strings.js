@@ -1,8 +1,8 @@
 /*
- * Implement an algorithm to determine if a string has all unique characters.
- * What if you can not use additional data structures?
- * Return value?
- * Are upper and lowercase considered the same?
+ Implement an algorithm to determine if a string has all unique characters.
+ What if you can not use additional data structures?
+ Return value?
+ Are upper and lowercase considered the same?
  */
 
 // time: O(n)
@@ -43,11 +43,11 @@ const isUniqueInPlace = (string) => {
 // console.log('isUnique test: ', isUniqueInPlace('abcda') === false);
 
 /*
- * Write code to reverse a C-Style String.
- * (C-String means that “abcd” is represented as five characters,
- * including the null character.)
- * Where is the null character? Assuming end..
- * Can we mutate? Or pure function? Strings are immmutable in JS anyway
+ Write code to reverse a C-Style String.
+ (C-String means that “abcd” is represented as five characters,
+ including the null character.)
+ Where is the null character? Assuming end..
+ Can we mutate? Or pure function? Strings are immmutable in JS anyway
  */
 
  const myReverse = (string) => {
@@ -63,11 +63,11 @@ const isUniqueInPlace = (string) => {
 // console.log('my reverse: ', myReverse('abcd ') === ' dcba');
 
 /*
- * Design an algorithm and write code to remove the duplicate characters in a
- * string without using any additional buffer. NOTE: One or two additional
- * variables are fine. An extra copy of the array is not.
- * What's buffer refer to?
- * Extra copy of the ?array?
+ Design an algorithm and write code to remove the duplicate characters in a
+ string without using any additional buffer. NOTE: One or two additional
+ variables are fine. An extra copy of the array is not.
+ What's buffer refer to?
+ Extra copy of the ?array?
  */
 
 const myUnique = (string) => {
@@ -84,7 +84,7 @@ const myUnique = (string) => {
 // console.log('myUnique test: ', myUnique('aabaababc') === 'abc');
 
 /*
- * Write a method to decide if two strings are anagrams or not.
+ Write a method to decide if two strings are anagrams or not.
  */
 
 // time: O(n^2) -- how could we do better? Get creative...
@@ -118,10 +118,10 @@ const isAnagram = (string1, string2) => {
 // console.log('isAnagram test: ', isAnagram('aaba', 'bcaa') === false);
 
 /*
- * Write a method to replace all spaces in a string with ‘%20’.
- * What sort of encoding? UTF-8? (does that even matter?)
- * Must return a new copy since strings are immutatble in JS
- * just use encodeURI() IRL
+ Write a method to replace all spaces in a string with ‘%20’.
+ What sort of encoding? UTF-8? (does that even matter?)
+ Must return a new copy since strings are immutatble in JS
+ just use encodeURI() IRL
  */
 
 // time: O(n)
@@ -144,3 +144,38 @@ const escapeSpaces = (string) => {
 // console.log('escapeSpaces test: ', escapeSpaces('  ') === '%20%20');
 // console.log('escapeSpaces test: ', escapeSpaces('a b ') === 'a%20b%20');
 // console.log('escapeSpaces test: ', escapeSpaces('abc') === 'abc');
+
+/*
+ Given an image represented by an NxN matrix, where each pixel in the image is
+ 4 bytes, write a method to rotate the image by 90 degrees. Can you do this in
+ place?
+ [
+ [1, 2, 3],
+ [4, 5, 6],   =>
+ [7, 8, 9],
+]
+[
+[1, 4, 7],
+[2, 5, 8],
+[3, 6, 9],
+]
+ */
+
+// time: O(n^2)
+// space: O(1)
+const myTransform = (array) => {
+  let previous;
+
+  for (let i = 0; i < array.length; i++) {
+    for (let j = i + 1; j < array.length; j++) {
+      previous = array[i][j];
+      array[i][j] = array[j][i];
+      array[j][i] = previous;
+    }
+  }
+
+  return array;
+}
+
+// why not evaluating as equal? Testing for same array and value?
+// console.log('myTransform test: ', myTransform([[1,2,3], [4,5,6], [7,8,9]]) === [[1,4,7], [2,5,8], [3,6,9]]);
