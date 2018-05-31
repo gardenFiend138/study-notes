@@ -241,8 +241,12 @@ const setColumnAndRowToZero = (array) => {
  another. Given two strings, s1 and s2, write code to check if s2 is a rotation
  of s1 using only one call to isSubstring
  (i.e., “waterbottle” is a rotation of “erbottlewat”).
+ Assuming this means that not only can we not manually call the function more than
+ once, but we can't make recursive calls? Or check
  */
 
+// time: O(n)
+// space: O(1)
 const isSubstring = (string1, string2) => string2.includes(string1);
 
 // console.log('isSubstring test: ', isSubstring('pop', 'popop') === true);
@@ -250,5 +254,25 @@ const isSubstring = (string1, string2) => string2.includes(string1);
 // console.log('isSubstring test: ', isSubstring('pop', 'podop') === false);
 
 const isRotation = (string1, string2) => {
+  // can't be rotation if different lengths
+  if (string1.length !== string2. length) return false;
 
+  // can't be rotation if don't have all same letters
+  for (let i = 0; i < string1.length; i++) {
+    if (!string2.includes(string1[i])) {
+      return false;
+    }
+  }
+
+  const firstSub = string2.slice(0, 2);
+  const lastSub = string2.slice(2, string2.legnth);
+
+  if (!isSubstring(firstSub, string1)) return false;
+
+  const substringIndex = string1.indexOf(firstSub);
+  const rotateString1 = string1.slice(substringIndex + 2, string1.length) + string1.slice(0, substringIndex);
+
+  return rotateString1 === lastSub;
 };
+
+console.log('isRotation test: ', isRotation('waterbottle', 'erbottlewat') === true);
