@@ -234,4 +234,21 @@ const setColumnAndRowToZero = (array) => {
   return array;
 };
 
-console.log('setColumnAndRowToZero test: [[0, 0, 0], [0, 0, 0], [0, 0, 9]] ?', setColumnAndRowToZero([[0, 4, 7], [2, 0, 8], [3, 6, 9]]));
+// console.log('setColumnAndRowToZero test: [[0, 0, 0], [0, 0, 0], [0, 0, 9]] ?', setColumnAndRowToZero([[0, 4, 7], [2, 0, 8], [3, 6, 9]]));
+
+/*
+ Assume you have a method isSubstring which checks if one word is a substring of
+ another. Given two strings, s1 and s2, write code to check if s2 is a rotation
+ of s1 using only one call to isSubstring
+ (i.e., “waterbottle” is a rotation of “erbottlewat”).
+ */
+
+const isSubstring = (string1, string2) => string2.includes(string1);
+
+// console.log('isSubstring test: ', isSubstring('pop', 'popop') === true);
+// console.log('isSubstring test: ', isSubstring('popop', 'popop') === true);
+// console.log('isSubstring test: ', isSubstring('pop', 'podop') === false);
+
+const isRotation = (string1, string2) => {
+
+};
