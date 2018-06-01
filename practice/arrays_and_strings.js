@@ -1,3 +1,5 @@
+// TODO: add unit tests; next round, use TDD
+
 /*
  Implement an algorithm to determine if a string has all unique characters.
  What if you can not use additional data structures?
@@ -275,4 +277,18 @@ const isRotation = (string1, string2) => {
   return rotateString1 === lastSub;
 };
 
-console.log('isRotation test: ', isRotation('waterbottle', 'erbottlewat') === true);
+// console.log('isRotation test: ', isRotation('waterbottle', 'erbottlewat') === true);
+
+export default {
+  isUnique,
+  isUniqueInPlace,
+  myReverse,
+  myUnique,
+  isAnagram,
+  escapeSpaces,
+  myTransform,
+  getColumnAndRowWithZero,
+  setColumnAndRowToZero,
+  isSubstring,
+  isRotation,
+}
