@@ -29,20 +29,19 @@ const isUnique = (string) => {
 
 const isUniqueInPlace = (string) => {
   let i;
-  let partition;
+  let j;
 
   for (i = 1; i < string.length; i++) {
-    partition = i - 1;
-    if (string.slice(0, partition + 1).includes(string[i])) {
-      return false;
+    for (j = 0; j < i; j++) {
+      if (string[j] === string[i]) return false;
     }
   }
 
   return true;
 };
 
-// console.log('isUnique test: ', isUniqueInPlace('abcde') === true);
-// console.log('isUnique test: ', isUniqueInPlace('abcda') === false);
+// console.log('isUniqueInPlace test: ', isUniqueInPlace('abcde') === true);
+// console.log('isUniqueInPlace test: ', isUniqueInPlace('abcda') === false);
 
 /*
  Write code to reverse a C-Style String.
@@ -279,16 +278,16 @@ const isRotation = (string1, string2) => {
 
 // console.log('isRotation test: ', isRotation('waterbottle', 'erbottlewat') === true);
 
-export default {
-  isUnique,
-  isUniqueInPlace,
-  myReverse,
-  myUnique,
-  isAnagram,
-  escapeSpaces,
-  myTransform,
-  getColumnAndRowWithZero,
-  setColumnAndRowToZero,
-  isSubstring,
-  isRotation,
-}
+// export default {
+//   isUnique,
+//   isUniqueInPlace,
+//   myReverse,
+//   myUnique,
+//   isAnagram,
+//   escapeSpaces,
+//   myTransform,
+//   getColumnAndRowWithZero,
+//   setColumnAndRowToZero,
+//   isSubstring,
+//   isRotation,
+// };
