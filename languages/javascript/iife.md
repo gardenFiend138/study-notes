@@ -6,13 +6,13 @@ IIFE == 'iffy' === funciton that's called immediately after you define it. Usual
 
 >  The (surrounding parenthesis) prevents from treating it >  as a function declaration.
 >
->  The final parenthesis() are executing the function 
+>  The final parenthesis() are executing the function
 >  expression.
 >
->  On IIFE you are calling the function exactly when you 
+>  On IIFE you are calling the function exactly when you
 >  are defining it.
 
-```Javascript 
+```Javascript
 var result = [];
 for (var i=0; i < 5; i++) {
   result.push( function() { return i } );
