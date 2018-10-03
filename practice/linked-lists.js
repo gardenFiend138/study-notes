@@ -1,13 +1,4 @@
-/*
- The node class is a simple object. It's constructor method sets the data/ value
- of the node, as well as sets the next value, the value it holds a pointer to.
- */
-class Node {
-  constructor(data, next) {
-    this.data = data;
-    this.next = next;
-  }
-}
+const Node = require('./node.js');
 
 class LinkedList {
   constructor(data = {}) {
@@ -37,6 +28,7 @@ class LinkedList {
     if (!targetNode) return null;
     const oldNext = targetNode.next;
     targetNode.next = new Node(data, oldNext);
+    this.length++;
 
     return targetNode; // what should we return here?
   }
@@ -63,6 +55,7 @@ class LinkedList {
     return currentNode;
   }
 
+  // returns first instance of node with matching value
   getNodeByValue(val) {
     let currentNode = this.head;
 
@@ -86,6 +79,29 @@ class LinkedList {
 
     return tail;
   }
+
+  clone() {
+    let currentNode = this.head;
+    if (!currentNode) return null;
+    const newList = new LinkedList(currentNode.data);
+
+    while (currentNode.next) {
+      newList.insertTail(currentNode.next.data);
+      currentNode = currentNode.next;
+    }
+
+    return newList;
+  }
+
+  empty() {
+    let currentNode = this.head;
+    if (!currentNode) return null;
+
+    while (currentNode.next) {
+
+      currentNode = null
+    }
+  }
 }
 
 
@@ -94,12 +110,14 @@ class LinkedList {
 const list = new LinkedList(1);
 list.insertTail(2);
 list.insertTail(3);
-list.insertAfterVal(2, 2.5)
+// list.insertAfterVal(2, 2.5)
 
 // console.log('list', list);
 // console.log('head', list.head);
 // console.log('next', list.head.next);
 // console.log('next.next', list.head.next.next);
-console.log('list.insertHead(0)', list.insertHead(0));
-console.log('delete 2', list.deleteVal(2));
-console.log('after delete', list);
+// console.log('list.insertHead(0)', list.insertHead(0));
+// console.log('delete 2', list.deleteVal(2));
+// console.log('after delete', list);
+
+console.log('clone', list.clone());
