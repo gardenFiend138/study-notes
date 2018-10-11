@@ -1,4 +1,5 @@
 const Node = require('./node.js');
+// const LinkedList = require('./linked-list.js');
 
 // how might this change if implemented with a linked list?
 class Stack {

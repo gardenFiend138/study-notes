@@ -99,3 +99,21 @@ const setColumnAndRowToZero = (array) => {
 //   getZeroCoordinates,
 //   setColumnAndRowToZero,
 // };
+
+// rotateLeft([1, 2, 3, 4, 5], 6) => [2, 3, 4, 5, 1]
+const rotateLeft = (array, offset) => {
+  if (offset === 0 || offset % array.length === 0) return array;
+  let start = array.length > offset
+    ? array.length - offset
+    : array.length - (offset % array.length);
+
+  for (let i = 0; i < array.length; i++) {
+    console.log(array[start]);
+    start++;
+    if (start === array.length) start = 0;
+  }
+
+  return;
+};
+
+console.log(rotateLeft([1,2,3,4,5], 4));

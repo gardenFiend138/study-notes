@@ -1,5 +1,6 @@
 const Node = require('./node.js');
 
+// singly linked list
 class LinkedList {
   constructor(data = {}) {
     this.head = null;
@@ -14,11 +15,25 @@ class LinkedList {
     return this;
   }
 
+  deleteHead() {
+    this.head = this.head.next;
+
+    return this.head;
+  }
+
   insertTail(data) {
     const oldTail = this.getTail();
     const newTail = new Node(data, null);
     oldTail.next =  newTail;
     this.length++;
+
+    return newTail;
+  }
+
+  deleteTail() {
+    const tail = this.getTail();
+    const newTail = tail.findParent();
+    newTail.next = null;
 
     return newTail;
   }
