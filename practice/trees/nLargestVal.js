@@ -1,3 +1,4 @@
+// redo this using a heap
 // in a binary search tree, find the Nth largest value
 // below works for a balanced tree
 function secondLargestVal(tree) {
