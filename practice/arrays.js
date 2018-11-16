@@ -38,7 +38,7 @@ const myTransform = (array) => {
  its entire row and column is set to 0.
 
  In place? This may drastically affect the outcome.
- Or scan the entire matrix first, find the zeroes, and set the rows and columns from there?
+ Or scan the entire matrix first, find the zeros, and set the rows and columns from there?
 
  [
  [0, 4, 7],
@@ -53,36 +53,39 @@ const myTransform = (array) => {
  ]
  */
 
+/*
+  Maybe, instead of building up an array of the coordinates, just use a hash to keep
+  track of which rows/ columns will be set to 0
+ */
 const getZeroCoordinates = (array) => {
-  let coordinates = [];
+  // let coordinates = [];
+  const zeros = { rows: {}, columns: {} };
 
   for (let i = 0; i < array.length; i++) {
     for (let j = 0; j < array.length; j++) {
       if (array[i][j] === 0) {
-        coordinates.push([i, j]);
+        if (!zeros.rows[i]) zeros.rows[i] = true;
+        if (!zeros.columns[j]) zeros.columns[j] = true;
+        // could make other optimizations here: if we find a zero, AND the rows/columns
+        // are already 0s, then we can continue on and skip that row...might not be worth
+        // the hassle though
       }
     }
   }
 
-  return coordinates;
+  return zeros;
 }
 
-// This is terrible, look at it again
-// get this working -- realized the issue was with the helper function;
-// a notebook will be helpful for this one
 const setColumnAndRowToZero = (array) => {
   const zeroCoordinates = getZeroCoordinates(array);
-
+  
+  // don't loop through the entire matrix again, but check rows and columns instead
+  // although, we have to loop through entire matrix once already, so we're already
+  // at O(n^2) anyway, so does it matter then?
   for (let i = 0; i < array.length; i++) {
     for (let j = 0; j < array.length; j++) {
-      console.log('zeroCoordinates: ', zeroCoordinates);
-      // if (zeroCoordinates.includes(i)) array[i][j] = 0;
-      // if (zeroCoordinates.includes(j)) {
-      //   for (let k = 0; k < i; k++) {
-      //     array[k][j] = 0;
-      //     array[i][k] = 0;
-      //   }
-      // }
+      if (zeroCoordinates.rows[i]) array[i][j] = 0;
+      if (zeroCoordinates.columns[j]) array[i][j] = 0;
     }
   }
 
