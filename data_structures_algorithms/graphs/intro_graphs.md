@@ -10,9 +10,11 @@
   * __edge__: the part of a graph that connects the nodes; can be either undirected or directed
   * __ordered pair__: denoted by parenthesis (), and mean that the order matters (i.e.: given a != b, (a, b) != (b, a))
   * __unordered pair__: denoted by curly braces; order does not matter (i.e.: given a != b, {a, b} == {b, a})
-  * __directed graph__: a graph in which all edges are directed, which means that they flow from one node to another; denoted by ordered pairs
-  * __undirected graph__: a graph in which all edges are not directed, which means that they flow both ways between connected nodes; denoted by unordered pairs
-  * __weight/ cost__: value assigned to an edge; can be said that all graphs are weighted, and that if no weight is specified, then the edges are all of equal weight; also referred to as weighted/ unweighted graphs though
+  * __directed graph__: a graph in which all edges are directed, which means that they flow from one node to another; denoted by ordered pairs; example: internet (sites have links to other sites, but not necessarily reciprocal)
+  * __undirected graph__: a graph in which all edges are not directed, which means that they flow both ways between connected nodes; denoted by unordered pairs; example: social network (friendship is reciprocal)
+  * __weight/ cost__: value assigned to an edge; can be said that all graphs are weighted, and that if no weight is specified, then the edges are all of equal weight; also referred to as weighted/ unweighted graphs though;
+  example: when to use edges with weight? Modeling a map: i.e. highways connecting cities are undirected,
+  intracity roads (1 ways) would need direction; weight could be the distance between cities
 
 * contrasting linear data structures and graphs
   * arranged in linear ways (i.e.: arrays, linked lists)
@@ -55,7 +57,9 @@
 
 ### Key Terms
   * __self-loop__: a node that has a link to itself
-  * __multi-edge/ prallel-edge__: an edge that is repeated in a graph
+  * __multi-edge/ prallel-edge__: an edge that is repeated in a graph (2 vertices, multiple edges);
+    example: modeling flights between cities; can have multiple flights between cities,
+    and those flights will have unique propertiesf
   * __simple graph__: a graph with NO self-loops or multi/parallel edges
   * __dense__: a graph that has edges close to |V| squared; use an adjacency matrix
   * __sparse__: a graph that has edges close to |V|; use an adjacency list to save to memory,
@@ -97,7 +101,7 @@ Number of edges and vertices denoted as |V| and |E|, read as 'Edges in set E', '
     * path denoted by < >
       * simple path: vertices and edges are not repeated
     * Walk: traversing a graph
-    * Trail a walk in which no edges are repeated
+    * Trail: a walk in which no edges are repeated
 
   * A graphs is called strongly connected if there is a path from any vertex to any other vertex, and it is directed
   * A graph that is undirected, but still provides a path to all vertices, then it is just connected
@@ -134,6 +138,24 @@ Array of vertices of graph:
 
 Array of edges (shown here as subarry; best to define class and store instances of the edge class that you define)
 `[[vertex start index, vertex end index, weight], [], [], [], [], []]`
+```javascript
+class Edge {
+  /*
+   Origin is the start node, destination is the end node (for directed graphs)
+   What would change about this constructor to make this an undirected graph?
+   */
+  constructor(origin, destination, weight = 1, directed = false) {
+    if (directed) {
+      this.origin = origin;
+      this.destination = destination;
+      this.weight = weight;
+    } else {
+      this.vertices = [origin, destination];
+      this.weight = weight;
+    }
+  }
+}
+```
 
 No need to include both edges for undirected graphs (i.e.: if we know it's undirected, then no need to A,B and B,A
 
