@@ -2,15 +2,13 @@ const Node = require('./node.js');
 
 // singly linked list
 class LinkedList {
-  constructor(data = {}) {
+  constructor() {
     this.head = null;
     this.length = 0;
-    this.insertHead(data); // maybe this isn't right--should we add to tail by
-                           // default instead?
   }
 
   insertHead(data) {
-    this.head = new Node(data, this.head);
+    this.head = new Node(data);
     this.length++;
 
     return this;
@@ -18,13 +16,14 @@ class LinkedList {
 
   deleteHead() {
     this.head = this.head.next;
+    this.length--;
 
     return this.head;
   }
 
   insertTail(data) {
     const oldTail = this.getTail();
-    const newTail = new Node(data, null);
+    const newTail = new Node(data);
     oldTail.next =  newTail;
     this.length++;
 
@@ -35,8 +34,13 @@ class LinkedList {
     const tail = this.getTail();
     const newTail = tail.findParent();
     newTail.next = null;
+    this.length--;
 
     return newTail;
+  }
+  
+  add(data) {
+    this.head ? this.insertTail(data) : this.insertHead(data);
   }
 
   insertAfterVal(val, data) {
@@ -123,9 +127,9 @@ class LinkedList {
 
 // 0 -> 1 -> 2 -> 2.5 -> 3
 
-const list = new LinkedList(1);
-list.insertTail(2);
-list.insertTail(3);
+// const list = new LinkedList(1);
+// list.insertTail(2);
+// list.insertTail(3);
 // list.insertAfterVal(2, 2.5)
 
 // console.log('list', list);
@@ -136,4 +140,6 @@ list.insertTail(3);
 // console.log('delete 2', list.deleteVal(2));
 // console.log('after delete', list);
 
-console.log('clone', list.clone());
+// console.log('clone', list.clone());
+
+module.exports = LinkedList;

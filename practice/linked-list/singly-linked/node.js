@@ -3,9 +3,9 @@
  of the node, as well as sets the next value, the value it holds a pointer to.
  */
 class Node {
-  constructor(data, next = null) {
+  constructor(data) {
     this.data = data;
-    this.next = next;
+    this.next = null;
   }
 }
 
