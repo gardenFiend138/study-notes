@@ -2,6 +2,8 @@
 
 [Article Explaining IIFE (search iife)](https://medium.freecodecamp.org/the-definitive-javascript-handbook-for-a-developer-interview-44ffc6aeb54e)
 
+[Video Explanation of IIFE](https://www.youtube.com/watch?v=I5EntfMeIIQ)
+
 IIFE == 'iffy' === funciton that's called immediately after you define it. Usually used when you want to create a new variable scope.
 
 >  The (surrounding parenthesis) prevents from treating it >  as a function declaration.
@@ -29,3 +31,5 @@ for (var i=0; i < 5; i++) {
 console.log( result[1]() ); // 1
 console.log( result[3]() ); // 3
 ```
+
+An IIFE is just an anonymous function which is immediately invoked 
