@@ -7,6 +7,10 @@ const makeList = (arr) => {
   return ll;
 }
 
+// need to clarify here--this finds the intersection of the values,
+// but each ll could have the same value, but a different node.
+// probably need to change this to mark the node as seen, not the
+// data/ value
 const findIntersection = (list1, list2) => {
   const seen = {};
   const [shortest, longest] = list1.length > list2.length

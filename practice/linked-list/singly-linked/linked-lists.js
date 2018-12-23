@@ -8,10 +8,10 @@ class LinkedList {
   }
 
   insertHead(data) {
-    this.head = new Node(data);
+    this.head = data instanceof Node ? data : new Node(data);
     this.length++;
 
-    return this;
+    return this.head;
   }
 
   deleteHead() {
@@ -23,7 +23,7 @@ class LinkedList {
 
   insertTail(data) {
     const oldTail = this.getTail();
-    const newTail = new Node(data);
+    const newTail = data instanceof Node ? data : new Node(data);
     oldTail.next =  newTail;
     this.length++;
 
@@ -40,7 +40,7 @@ class LinkedList {
   }
   
   add(data) {
-    this.head ? this.insertTail(data) : this.insertHead(data);
+   return this.head ? this.insertTail(data) : this.insertHead(data);
   }
 
   insertAfterVal(val, data) {

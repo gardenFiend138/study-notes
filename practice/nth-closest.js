@@ -31,6 +31,7 @@ class Node {
   }
 }
 
+// just use an array for this
 class MinHeap {
   constructor(nodes) {
     this.nodes = nodes;
