@@ -1,19 +1,12 @@
-/*
- options : Object
- options.value : Number
- options.leftChild : Object (Node)
- options.rightChild : Object (Node)
- */
 class Node {
-  constructor(options = {}) {
-    const { value, leftChild, rightChild } = options;
-
+  constructor(value)
     this.value = value;
-    this.leftChild = leftChild || null;
-    this.rightChild = rightChild || null;
+    this.left = null;
+    this.right = null;
   }
 }
 
+/*
 class BinaryTree {
   constructor(options = {}) {
     this.nodes = options.nodes || [];
@@ -51,3 +44,5 @@ const b = new Node({ value: 41 });
 const c = new Node({ value: 83 });
 const tree = new BinaryTree({ nodes: [ a, b, c ] });
 console.log('tree: ', tree);
+*/
+module.exports = Node;
