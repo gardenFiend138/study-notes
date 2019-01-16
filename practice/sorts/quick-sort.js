@@ -12,7 +12,7 @@
 //   }
 //
 // }
-
+// [3,6,1,7]
 function quickSort(arr, left = 0, right = arr.length - 1) {
   let idx;
 
