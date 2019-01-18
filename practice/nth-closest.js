@@ -47,18 +47,18 @@ const mergeSort = (arr, comparator) => {
   return merge(left, right, comparator);
 };
 
-const merge = (left, right, comparator = (x, y) => x > y) => {
+const merge = (left, right, comparator = (x, y) => x < y) => {
   const sorted = [];
 
   while (left.length > 0 && right.length > 0) {
     if (comparator(left[0], right[0])) {
-      sorted.push(right.shift());
-    } else {
       sorted.push(left.shift());
+    } else {
+      sorted.push(right.shift());
     }
   }
 
-  return [...sorted, ...left, ...right];
+  return [...sorted, ...right, ...left];
   // return sorted.concat(left).concat(right);
 };
 

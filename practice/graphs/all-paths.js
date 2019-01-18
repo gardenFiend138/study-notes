@@ -103,9 +103,7 @@ function allPathsTwo(graph) {
     // visited[currentNode] = true;
     edges = graph[currentNode]; // [1,2] -> [4] -> []
 
-console.log('currentNode, destination: ', currentNode, destination, stack);
     if (currentNode === destination) {
-      console.log('inhere now');
       result.push(currentPath);
       currentPath = [0];
     }
